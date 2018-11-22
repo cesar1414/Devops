@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage ('Build') {
             steps {
-                sh './quickstart/gradlew clean assemble -p quickstart'
+                sh './webapplication/gradlew clean assemble -p webapplication'
             }
         }
         stage ('Testing') {
             steps {
-                sh './quickstart/gradlew test -p quickstart'
+                sh './webapplication/gradlew test -p webapplication'
                 junit '**/test-results/test/*.xml'
             }
         }
         stage ('Publish') {
             steps {
-                sh './quickstart/gradlew uploadArchives -p quickstart'
+                sh './webapplication/gradlew uploadArchives -p webapplication'
                 archiveArtifacts artifacts: '**/repos/*.jar'
             }
         }
