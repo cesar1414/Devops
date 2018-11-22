@@ -11,7 +11,7 @@ remotes {
     identity = file("C:/Users/Admin/Desktop/at07/cesar123.pem")
   }
 }
-task webapplication {
+task deploy {
   doLast {
     ssh.run {
       session(remotes.dev_server) {
