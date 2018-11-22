@@ -19,10 +19,5 @@ pipeline {
                 archiveArtifacts artifacts: '**/repos/*.war'
             }
         }
-        stage ('Deploy') {
-            steps {
-                sh './webapplication/gradlew -b deploy.gradle webapplication'
-            }
-        }
     }
 }
